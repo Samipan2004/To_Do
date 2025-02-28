@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    width: 350px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 15px;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+.head {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.input {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.button {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #4c9966;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #33794a;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.todo-item.completed span {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.todo-item span {
+    cursor: pointer;
+    flex: 1;
+}
+
+.todo-item .button {
+    width: auto;
+    padding: 5px 10px;
+    background-color: #d9534f;
+}
+
+.todo-item .button:hover {
+    background-color: #c9302c;
+}
