@@ -5,8 +5,10 @@ const todoRoutes = require("./routes/todoRoutes");
 const registerRoutes = require("./routes/registerRoutes");
 const loginRoutes = require("./routes/loginRoutes");
 
+require('dotenv').config();
+const MONGODB_URI = process.env.MONGODB_URI;
+
 const app = express();
-const PORT = 3001;
 
 // Middleware
 app.use(express.json());
