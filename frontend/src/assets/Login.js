@@ -2,7 +2,7 @@ import { useState } from 'react';
 import "./Login.css";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+const API_URL = process.env.REACT_APP_API_URL;
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/login', { email, password });
+      const response = await axios.post(`${API_URL}/login`, { email, password });
       if (response.data && response.data.user._id) {
         console.log(response.data);
         alert('Login Success');

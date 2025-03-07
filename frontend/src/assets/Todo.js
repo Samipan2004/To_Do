@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./Todo.css";
 import axios from "axios";
-
+const API_URL = process.env.REACT_APP_API_URL;
 const Todo = () => {
   const { userId } = useParams();
   const [task, setTask] = useState("");
@@ -10,7 +10,7 @@ const Todo = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/todos/${userId}`)
+      .get(`${API_URL}/todos/${userId}`)
       .then((res) => setTodos(res.data))
       .catch((err) => console.error("Error fetching todos:", err));
   }, [userId]);
@@ -20,7 +20,7 @@ const Todo = () => {
     if (task.trim() === "") return;
 
     try {
-      const response = await axios.post(`http://localhost:3001/todos/${userId}`, { text: task });
+      const response = await axios.post(`${API_URL}/todos/${userId}`, { text: task });
       setTodos([...todos, response.data]);
       setTask("");
     } catch (error) {
@@ -33,7 +33,7 @@ const Todo = () => {
     if (!todo) return;
 
     try {
-      const response = await axios.patch(`http://localhost:3001/todos/${userId}/${id}`, {
+      const response = await axios.patch(`${API_URL}/todos/${userId}/${id}`, {
         completed: !todo.completed,
       });
       setTodos(todos.map((t) => (t._id === id ? response.data : t)));
@@ -44,7 +44,7 @@ const Todo = () => {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/todos/${userId}/${id}`);
+      await axios.delete(`${API_URL}/todos/${userId}/${id}`);
       setTodos(todos.filter((t) => t._id !== id));
     } catch (error) {
       console.error("Error deleting todo:", error);

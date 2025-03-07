@@ -2,7 +2,7 @@ import {useState} from 'react';
 import "./Reg.css";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
-
+const API_URL = process.env.REACT_APP_API_URL;
 const Reg=()=> {
   const [username, setUsername]=useState();
   const [email, setEmail]=useState();
@@ -11,7 +11,7 @@ const Reg=()=> {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:3001/register', {username, email, password})
+    axios.post(`${API_URL}/register`, {username, email, password})
     .then(result=>{
       console.log(result);
       if(result.data==="Already registerd"){
