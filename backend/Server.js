@@ -19,7 +19,7 @@ app.use("/login", loginRoutes);
 
 // MongoDB Connection
 mongoose
-  .connect("mongodb+srv://{Username}:{Password}@cluster0.qz9yt.mongodb.net/todo_app")
+  .connect(MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
