@@ -50,7 +50,7 @@ const Login = () => {
         />
         <button type='submit' className="button">Login</button>
       </form>
-      <p className="question">Don't have an account? <a href="/register">Register</a></p>
+      <p className="question">Don't have an account? <span onClick={() => navigate('/register')} style={{ cursor: "pointer", color: "blue" }}>Register</span></p>
     </div>
   );
 };
