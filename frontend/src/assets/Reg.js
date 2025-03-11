@@ -49,7 +49,7 @@ const Reg=()=> {
         onChange={(event) => setPassword(event.target.value)}
       />
       <button type='submit' className="button">Register</button>
-      <p className="question">Already have an account?<span onClick={() => navigate('/')} style={{ cursor: "pointer", color: "blue" }}>Login</span></p>
+      <p className="question">Already have an account? <span onClick={() => navigate('/')} style={{ cursor: "pointer", color: "blue" }}>Login</span></p>
     </form>
    </div>
   )
