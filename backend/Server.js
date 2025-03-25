@@ -25,7 +25,8 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-app.listen(3001, () => console.log(`Server running on port http://127.0.0.1:3001/`));
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, "0.0.0.0", () => console.log(`Server running on port ${PORT}`));
 
 app.get("/health", (req, res) => {
   res.status(200).send("Server is alive!");
