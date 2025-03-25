@@ -26,3 +26,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.listen(3001, () => console.log(`Server running on port http://127.0.0.1:3001/`));
+
+app.get("/health", (req, res) => {
+  res.status(200).send("Server is alive!");
+});
